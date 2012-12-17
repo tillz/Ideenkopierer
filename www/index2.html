@@ -1,0 +1,903 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                  "http://www.w3.org/TR/html4/strict.dtd">
+    <html>
+      <head>
+        <title>Media Example</title>
+<meta name="viewport" content="width=device-width; height=device-height; initial-scale = 1.0; maximum-scale=1.0; user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+  <style type="text/css">
+    body {
+      background-image:url('images/bodybg.jpg');
+background-size: 100% 1000px;      
+      overflow-x:hidden;
+      font-family: sans-serif;
+    } 
+    a{
+    color:#fff;
+    text-decoration:none;
+    }
+.contentPreHead {
+position: absolute;
+overflow: hidden;
+background: url(images/prehead_bg.png) no-repeat;
+color: white;
+padding-top:10px;
+padding-left:10px;
+font-family: 'Source Sans Pro', sans-serif;
+font-weight: bold;
+z-index: 2;
+}
+.contentPreHeadNL {
+position: absolute;
+overflow: hidden;
+background: url(images/prehead_bg.png) no-repeat;
+color: white;
+padding-top:10px;
+padding-left:10px;
+font-family: 'Source Sans Pro', sans-serif;
+font-weight: bold;
+z-index: 2;
+}
+
+#c1 {
+width: 250px;
+height: 75px;
+background-size: 250px 75px;
+top: 100px;
+left: 40px;
+font-size: 21px;
+}
+#c2 {
+width: 210px;
+height: 40px;
+background-size: 210px 40px;
+top: 220px;
+left: 20px;
+font-size: 19px;
+}
+#c3 {
+width: 210px;
+height: 40px;
+background-size: 210px 40px;
+top: 290px;
+left: 80px;
+font-size: 19px;
+}
+#c4 {
+width: 180px;
+height: 40px;
+background-size: 180px 40px;
+top: 360px;
+left: 40px;
+font-size: 19px;
+}
+#c6 {
+width: 210px;
+height: 40px;
+background-size: 210px 40px;
+top: 220px;
+left: 20px;
+font-size: 19px;
+}
+#c7 {
+width: 210px;
+height: 40px;
+background-size: 210px 40px;
+top: 290px;
+left: 80px;
+font-size: 19px;
+}
+#c8 {
+width: 180px;
+height: 40px;
+background-size: 180px 40px;
+top: 360px;
+left: 40px;
+font-size: 19px;
+}
+
+
+
+
+#c30 {
+width: 160px;
+height: 30px;
+background-size: 160px 30px;
+top: 180px;
+left: 20px;
+font-size: 19px;
+padding-top:5px;
+}
+#c31 {
+width: 180px;
+height: 30px;
+background-size: 180px 30px;
+top: 230px;
+left: 80px;
+font-size: 19px;
+padding-top:5px;
+}
+#c32 {
+width: 140px;
+height: 30px;
+background-size: 140px 30px;
+top: 280px;
+left: 40px;
+font-size: 19px;
+padding-top:5px;
+}
+#c33 {
+width: 260px;
+height: 30px;
+background-size: 260px 30px;
+top: 330px;
+left: 30px;
+font-size: 19px;
+padding-top:5px;
+}
+#c34 {
+width: 260px;
+height: 30px;
+background-size: 260px 30px;
+top: 380px;
+left: 15px;
+font-size: 19px;
+padding-top:5px;
+}
+#c40 {
+width: 260px;
+height: 30px;
+background-size: 260px 30px;
+top: 420px;
+left: 35px;
+font-size: 19px;
+padding-top:5px;
+}
+
+
+
+#c5 {
+width: 190px;
+height: 40px;
+background-size: 190px 40px;
+top: 180px;
+left: 10px;
+font-size: 19px;
+}
+#c9 {
+width: 220px;
+height: 40px;
+background-size: 220px 40px;
+top: 180px;
+left: 10px;
+font-size: 19px;
+}
+#c10 {
+width: 220px;
+height: 40px;
+background-size: 220px 40px;
+top: 180px;
+left: 10px;
+font-size: 19px;
+}
+.panel {
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+      background: white;
+      border: 1px solid #FF8800;
+}
+#plakate {
+      padding-top: 15px;
+      margin-top:220px;
+      text-align:center;
+}
+.subp {
+      padding-top: 15px;
+      margin-top:220px;
+      text-align:center;
+      display:none;
+      overflow:scroll;
+}
+#werb {
+      padding-top: 15px;
+      margin-top:220px;
+      text-align:center;
+      }
+#plakate img {
+width:115px;
+display:inline;
+}
+    .nav {
+
+      padding-left: 0;
+    }
+.chap_ex {
+      padding-left: 8px;
+}
+#player {
+      text-align:center;
+}
+#inhnav {
+    height:300px;
+    }
+#player img {
+width:40px; height:40px;
+    }
+    .nav li {
+      list-style: none;
+      border-top: 1px solid #aaa;
+      padding-left: 0; 
+            padding-right: 10px;
+      font-weight: bold; 
+    }
+    .nav img {
+    float:right; width:25px; height:25px; margin-top: -28px;
+
+    }
+    li.first {
+      border-top: 0;
+    }
+    ul {
+    overflow:scroll;
+    }
+    .nav a {
+      display: block;
+      padding: 8px;
+      color: #333;
+      text-decoration: none;
+      background: url(arrow.png) no-repeat right center;
+    }
+    .nav div {
+      display: block;
+      padding-left: 10px;
+      color: #333;
+      text-decoration: none;
+    }    
+  </style>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" charset="utf-8" src="jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="SMSComposer.js"></script>                
+        <script type="text/javascript" charset="utf-8">
+function padZero(s){
+ c= '0';
+ len=2;
+ while(s.length < len) s= c + s;
+ return s;
+}
+
+        // Wait for Cordova to load
+        //
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // Cordova is ready
+        //
+        function onDeviceReady() {
+        setTimeout(function() {
+    navigator.splashscreen.hide();
+    $("#progress").fadeOut();
+}, 2000);
+
+//            playAudio("chap_2.mp3");
+//if(window.innerHeight==460) {
+//iphone 4(s)
+//$(".chap_ex").height(200);
+//$("#plakate").height(200);
+//$("#werb").height(200);
+//$("#inhnav").height(200);
+//$("#plakatimg").css('padding-top','20px');
+//}
+        }
+
+        // Audio player
+        //
+        var my_media = null;
+        var mediaTimer = null;
+
+        // Play audio
+        //
+        function playAudio(src) {
+        console.log(src);
+            // Create Media object from src
+            my_media = new Media(src, onSuccess, onError);
+
+            // Play audio
+            my_media.play();
+
+            // Update my_media position every second
+            if (mediaTimer == null) {
+
+                mediaTimer = setInterval(function() {
+                    // get my_media position                  
+                    my_media.getCurrentPosition(
+                        // success callback
+                        function(position) {
+                            if (position > -1) {
+                            $("#progress").fadeOut();
+dur = my_media.getDuration();                              
+minVard = Math.floor(dur/60);  // The minutes
+secVard = dur % 60;
+
+minVarp = Math.floor(position/60);  // The minutes
+secVarp = position % 60;
+secVarps =Math.floor(secVarp).toString();
+secVards =Math.floor(secVard).toString();
+ c= '0';
+ len=2;
+ while(secVarps.length < len) secVarps= c + secVarps;
+ while(secVards.length < len) secVards= c + secVards;
+                                setAudioPosition((minVarp) + ":" + secVarps + "/" + (minVard) + ":" + secVards);
+                            }
+                        },
+                        // error callback
+                        function(e) {
+                            console.log("Error getting pos=" + e);
+                            setAudioPosition("Error: " + e);
+                        }
+                        
+                    );
+                }, 1000);
+            }
+        }
+        
+        function unpauseAudio(src) {
+        console.log(src);
+           // Play audio
+            my_media.play();
+
+        }        
+
+        // Pause audio
+        // 
+        function pauseAudio() {
+            if (my_media) {
+                my_media.pause();
+            }
+
+        }
+
+        // Stop audio
+        // 
+        function stopAudio() {
+            if (my_media) {
+                my_media.stop();
+            }
+            clearInterval(mediaTimer);
+            mediaTimer = null;
+        }
+
+        // onSuccess Callback
+        //
+        function onSuccess() {
+            console.log("playAudio():Audio Success");
+        }
+
+        // onError Callback 
+        //
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' + 
+                  'message: ' + error.message + '\n');
+        }
+
+        // Set audio position
+        // 
+        function setAudioPosition(position) {
+            document.getElementById('audio_position').innerHTML = position;
+        }
+        $(document).ready(function() {
+$('.panel').height(window.innerHeight-250);
+//$(".nav li").toggle(function() {
+//var bla=$(this).attr('id');
+//$('#'+bla+'_ex').slideDown();
+//},function() {
+//var bla=$(this).attr('id');
+//$('#'+bla+'_ex').slideUp();
+//});
+/*
+$(".nav li:not(img)").click(function() {
+    var bla=$(this).attr('id');
+    $('.nav').fadeOut(function() { 
+    $('#'+bla+'_ex').fadeIn();
+    console.log(bla);
+    });
+});*/
+/*$("#c1").click(function() {
+    $('.subp').fadeOut(function() { 
+    stopAudio();
+    $('#main').fadeIn();
+    });
+});
+
+
+$("#c2").click(function() {
+    $('#main').fadeOut(function() { 
+    $('#campaign').fadeIn();
+    });
+});
+$("#c4").click(function() {
+    $('#main').fadeOut(function() { 
+        $('#more').fadeIn();
+    });
+});
+$("#c3").click(function() {
+    $('#main').fadeOut(function() { 
+    $('#inhalte').fadeIn();
+    });
+});
+*/
+$('.contentPreHead span').click(function() {
+stopAudio();
+    var btnclass=$(this).parent().attr('class').split(/\s+/);
+    var oldstageclass=$(this).parent().parent().attr('class').split(/\s+/);
+    if(oldstageclass[0]=='stage_0') {
+    var newstage='stage_1';
+    } else {
+    var oldstage=oldstageclass[0].split('_');
+    var index=$(this).parent().index();
+    var newstage='stage_'+(parseInt(oldstage[1])+1)+'_';
+    
+    
+    for (var i=1;i<(oldstage.length-1);i++)
+{ 
+newstage+=oldstage[(i+1)]+'_';
+}
+
+
+newstage+=+(index+1); 
+    if(btnclass[1]=='last') {
+    stopAudio();
+    newstage='stage_'+(oldstage[1]-1);
+for (var i=2;i<(oldstage.length);i++)
+{ 
+    newstage+='_'+(oldstage[i]);
+}
+newstage=newstage.substring(0, newstage.length - 2)
+
+    }
+    }
+    console.log(oldstageclass[0]);
+    console.log(newstage);
+    if(newstage=='stage_3_1_3') {
+    window.location.href='http://ideenkopierer.de/pub/user_upload/Werbespot/wahlwerbespot_mittel.mp4';
+    } else {
+$('.stage').not('.'+newstage).fadeOut(function() { 
+        $('.'+newstage).fadeIn();
+    });
+    }
+});
+
+$(".stage li").click(function() {
+var index=$(this).index();
+var stage=$(this).parent().parent().attr('class').split(/\s+/);
+    var oldstage=stage[0].split('_');
+    var newstage='stage_'+(parseInt(oldstage[1])+1)+'_';
+    
+    
+    for (var i=1;i<(oldstage.length-1);i++)
+{ 
+newstage+=oldstage[(i+1)]+'_';
+}
+
+
+newstage+=+(index+1); 
+    console.log(newstage);
+
+
+if(newstage=='stage_4_2_2_0' || newstage=='stage_4_2_2_1' || newstage=='stage_4_2_2_2' || newstage=='stage_4_2_2_3') {
+    $("#progress").fadeIn(function() {
+    $(newstage).fadeIn();
+playAudio('http://pp90.de/idkpmedia/chap_'+index+'.mp3');    
+    });
+}
+
+    
+$('.stage').not('.'+newstage).fadeOut(function() { 
+    $('.'+newstage).fadeIn();
+});
+});
+
+
+/*
+$("#c6").click(function() {
+    $('#campaign').fadeOut(function() { 
+        $('#werb').fadeIn();
+    });
+});
+*/
+$("#c5").click(function() {
+    $('.chap_ex').fadeOut(function() { 
+        $('#player').fadeOut(function() { 
+        stopAudio();
+        $('.nav').fadeIn();
+if(window.innerHeight==460) {
+//iphone 4(s)
+$(".chap_ex").height(200);
+} else {
+$(".chap_ex").height(300);
+}        
+        });
+    });
+});
+/*
+$(".stage_3_2_2 > li").click(function() {
+$("#progress").fadeIn(function() {
+var b=$(this).parent().index();
+$('.nav').fadeOut(function() );
+});
+});
+
+$("#c7").click(function() {
+    $('#campaign').fadeOut(function() { 
+        $('#main').fadeOut(function() { 
+        $('#plakate').fadeIn();
+        });
+    });
+});
+
+$("#c9").click(function() {
+    $('#plakate').fadeOut(function() { 
+        $('#campaign').fadeIn();
+    });
+});
+$("#c10").click(function() {
+    $('#werb').fadeOut(function() { 
+        $('#campaign').fadeIn();
+    });
+});
+*/
+$("#plakate img").click(function() {
+     $('#ovel').fadeIn();
+     var src=$(this).attr('src');
+     $('#plakatimg').attr('src',src);
+     });
+     
+$("#ovel").click(function() {
+     $('#ovel').fadeOut();
+     var src=$(this).attr('src');
+     $('#plakatimg').attr('src',src);
+});
+
+
+
+$("#playbtn").click(function() {
+var src=$(this).children('img').attr('src');
+    if(src=='images/media-playback-pause-5.ico') {
+    $("#pauseimg").attr('src','images/media-playback-start-5.ico');
+    pauseAudio();
+    } else {
+    $("#pauseimg").attr('src','images/media-playback-pause-5.ico');
+    unpauseAudio();
+    }
+});
+$("#stopbtn").click(function() {
+stopAudio();
+$("#pauseimg").attr('src','images/media-playback-start-5.ico');
+});
+/*
+$("#c8").click(function() {
+//    $('#plakate').fadeOut(function() { 
+//        $('#campaign').fadeIn();
+//    });
+window.location.href='http://ideenkopierer.de/pub/user_upload/Werbespot/wahlwerbespot_mittel.mp4';
+});*/
+//
+
+$("#c34").click(function() {
+	var args = {};
+		args.toRecipients = '81190';
+		args.body = 'PIRATEN';
+	Cordova.exec("SMSComposer.showSMSComposer",args);
+    });
+});
+
+        </script>
+      </head>
+      <body>
+<!-- header -->
+      <div class="stage_0" style="height: 130px;
+width: auto;
+position: absolute;
+z-index: 999;
+top:10px;
+left:0px;
+right:0px;
+text-align:center;">
+      <a id="logo">
+        <img src="images/logo.png" alt="Ideenkopierer - Piraten Niedersachsen">
+      </a>
+<div class="contentPreHead" id="c1" style="position:fixed;"><span>Piraten in den Landtag. <br>Das ist eine gute Idee.</span></div>      
+      
+    </div>    
+<!-- end of header -->
+
+
+
+
+
+
+
+
+
+<!-- stage 1 -->
+<div class="stage_1 stage" id="main">
+    <div class="contentPreHead" id="c2"><span>Unsere Werbung</span></div>
+    <div class="contentPreHead" id="c3"><span>Unsere Inhalte</span></div>
+    <div class="contentPreHead" id="c4"><span>Mehr...</span></div>
+</div>
+
+<!-- stage 2/1 -->
+<div class="stage_2_1 stage subp" id="campaign" style="display:none;">
+    <div class="contentPreHead" id="c6"><span>Die Idee</span></div>
+    <div class="contentPreHead" id="c7"><span>Die Plakate</span></div>
+    <div class="contentPreHead" id="c8"><span><a href="http://ideenkopierer.de/pub/user_upload/Werbespot/wahlwerbespot_mittel.mp4">Der Spot</a></span></div>
+</div>
+
+<!-- stage 2/2 -->
+<div class="stage_2_2 stage subp" id="campaign" style="display:none;">
+    <div class="contentPreHead" id="c6"><span>Unser Wahlprogramm (Text)</span></div>
+    <div class="contentPreHead" id="c7"><span>Unser Wahlprogramm (H&ouml;rbuch)</span></div>
+    <div class="contentPreHead" id="c8"><span>Infomaterial bestellen</span></div>
+</div>
+
+<!-- stage 2/3 -->
+<div class="stage_2_3 stage subp" id="" style="display:none;">
+    <div class="contentPreHead" id="c30"><span>Kandidaten</span></div>
+    <div class="contentPreHead" id="c31"><span>Social Media</span></div>
+    <div class="contentPreHead" id="c32"><span>Spenden</span></div>
+    <div class="contentPreHead" id="c33"><span>Infomaterial bestellen</span></div>
+    <div class="contentPreHead" id="c34"><span>Veranstaltungen vor Ort</span></div>
+</div>
+
+
+<!-- stage 3/1/1 -->
+<div class="stage_3_1_1 stage subp panel" id="">
+<div class="contentPreHead last" id="c10"><span>Unsere Werbung</span></div><p>
+Wahlwerbung ist auch nur ganz normale Werbung. Es werden keine Inhalte
+vermittelt, politische Aussagen werden auf eingängige Slogans
+reduziert. Also machen wir Piraten diesmal auch Werbung. Wir werben
+für das Nachdenken über Politik und das Hinterfragen der Werbeslogans.
+
+Wir wollen, dass Sie, die Menschen unseres Bundeslandes, nicht
+irgendwelchen Plakaten vertrauen.
+
+Informieren Sie sich; lesen Sie die Wahlprogramme; vergleichen Sie!
+
+Ja, wir wollen, dass Sie auch die Programme der anderen lesen.
+
+Nur dann haben Sie wirklich eine Wahl.
+
+Und gehen Sie wählen!
+</p>
+</div>
+
+<!-- stage 3/3/3 -->
+<div class="stage_3_3_3 stage subp panel" id="">
+<div class="contentPreHead last" id="c9"><span>Mehr...</span></div><p style="display:inline;font-size:9px;">
+F&uuml;r unsere politische Aktivit&auml;t ben&ouml;tigen wir neben sehr viel &Uuml;berzeugung und Engagement leider auch Geld.<br>
+Da die Landtagswahl 2013 f&uuml;r die Piraten Niedersachsen bisher die erste Landtagswahl ist profitieren wir,<br>
+anders als die meisten anderen Parteien nicht von der staatlichen Parteienfinanzierung.<br>
+Daher brauchen wir dich! Spende jetzt!
+</p>
+    <div class="contentPreHead" id="c34"><span>SMS-Spende</span></div>
+    <div class="contentPreHead" id="c40"><span>Lastschrift</span></div>
+</div>
+
+<!-- stage 4/3/3/1 -->
+<div class="stage_4_3_3_1 stage subp panel" id="">
+<div class="contentPreHead last" id="c9"><span>Spenden</span></div><p style="display:inline;font-size:9px;">
+Die Spende per SMS ist am einfachsten.
+Du sendest eine SMS mit dem Wort "PIRATEN" an die 81190, oder Klick auf "Jetzt Spenden" und dann auf "Senden Diese kostet
+dich 5 € zuzüglich der normalen SMS-Gebühren deines Mobilfunkanbieters,
+die Abrechnung erfolgt über deine Mobilfunkrechnung.
+Pro SMS-Spende gehen 4,83 € direkt an die Piratenpartei Niedersachsen
+</p>
+    <div class="contentPreHead" id="c34"><span>SMS-Spende</span></div>
+    <div class="contentPreHead" id="c40"><span>Lastschrift</span></div>
+</div>
+
+
+<!-- stage 3/1/2 -->
+<div class="stage_3_1_2 stage subp panel" id="plakate">
+<div class="contentPreHead last" id="c9"><span>Unsere Werbung</span></div>
+    <img src="img/1.jpg">
+    <img src="img/2.jpg"><br>
+    <img src="img/3.jpg">
+    <img src="img/4.jpg"><br>
+    <img src="img/5.jpg">
+    <img src="img/6.jpg"><br>
+    <img src="img/7.jpg">
+    <img src="img/8.jpg"><br>
+    <img src="img/9.jpg">
+    <img src="img/10.jpg"><br>
+</div>    
+
+
+<!-- stage 3/2/1 -->
+<div class="stage_3_2_1 stage subp" id="">
+<div class="contentPreHead last" id="c5"><span>Unsere Inhalte</span></div>
+        <ul id="inhnav" class="nav panel">
+          <li  id="chap_1" class="first">
+            <a href="#">Celler Erkl&auml;rung</a>
+          </li>
+          <li  id="chap_2">
+            <a href="#">Pr&auml;ambel</a>
+          </li>
+          <li  id="chap_3">
+            <a href="#">Wirtschaft und Finanzen</a>
+          </li>
+          <li  id="chap_4">
+            <a href="#">Arbeit und Soziales</a>
+          </li>
+          <li  id="chap_5">
+            <a href="#">Bauen und Verkehr</a>
+          </li>
+          <li  id="chap_6">
+            <a href="#">Inneres und Recht</a>
+          </li>
+          <li  id="chap_7">
+            <a href="#">Geschlechter-, Familien- und Jugendpolitik</a>
+          </li>
+          <li  id="chap_8">
+            <a href="#">Drogen- und Suchtpolitik</a>
+          </li>
+          <li  id="chap_9">
+            <a href="#">Gesundheit</a>
+          </li>
+          <li  id="chap_10">
+            <a href="#">Umwelt</a>
+          </li>
+          <li  id="chap_11">
+            <a href="#">Energie</a>
+          </li>
+          <li  id="chap_12">
+            <a href="#">Verbraucherschutz</a>
+          </li>
+          <li  id="chap_13">
+            <a href="#">Staat und Religion</a>
+          </li>
+          
+          <li  id="chap_14">
+            <a href="#">Datenschutz</a>
+          </li>
+          
+          <li  id="chap_15">
+            <a href="#">Offene Standards und freie Software</a>
+          </li>
+          
+          <li  id="chap_16">
+            <a href="#">Transparenz in Politik und Verwaltung</a>
+          </li>
+          <li  id="chap_17">
+            <a href="#">Demokratiest&auml;rkung</a>
+          </li>
+          
+          <li  id="chap_18">
+            <a href="#">Kultur und Medien</a>
+          </li>
+          
+          <li  id="chap_19">
+            <a href="#">F&uuml;r eine humanistische Gesellschaft</a>
+          </li>  
+          
+          </ul>
+</div>          
+<div class="stage_4_2_1_1 stage subp panel" id="chap_1_ex">
+<div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.
+</p>
+<p>die Piraten werden niedersachsen positiv verändern:
+</p>
+<p>• Politik soll sich um die Menschen sorgen, die sich eine lebenswerte Zukunft wünschen.
+</p>
+<p>• Politik muss Rahmenbedingungen für eine Gesellschaft bieten, damit diese wächst.
+</p>
+<p>• Politik darf sich nicht abkapseln, sondern muss alle Menschen integrieren.
+</p>
+<p>Wir bringen Politik näher an den Menschen,<br> so wie es noch keine Partei bisher ermöglichen konnte.
+</p>
+<p>Wir wollen wieder echte Demokratie. Uns Bürgern muss mehr Einfluss auf Politik und Verwaltung ermöglicht werden. Darum fordern wir ein Transparenzgesetz für Nieder- sachsen, das allen Bürgern die Informationen aus Politik und Verwaltung öffentlich zugänglich macht. Wirkliche Transparenz bedeutet für uns, dass die politische Ent- scheidungsfindung für jeden nachvollziehbar wird.
+</p>
+<p>Behörden müssen mit jedem Bürger auf verständliche Weise kommunizieren und Vor- gänge in Verwaltungen müssen für alle durchschaubar sein. Unsere Forderung ist, dass das Niedersächsische Abgeordnetengesetz endlich an die Vorgaben der UN-Konvention zur Korruptionsbekämpfung angepasst wird. Nebeneinkünfte und Verflechtungen zwi- schen Politikern und Lobbygruppen müssen umfassend offengelegt werden. Wir verlan- gen, dass im Landtag wieder echte Debatten stattfinden und Entscheidungen nur dann getroffen werden, wenn der Landtag beschlussfähig ist.
+</p>
+<p>Statt Lobbyismus setzen wir auf mehr Einfluss für die Bürger, indem wir die direkte De- mokratie stärken und Hürden für Volksbegehren und Volksabstimmungen abbauen. Ver- mehrt nehmen Bürger ihre Angelegenheiten selbst in die Hand. Wir Piraten sind für diese Menschen der Fuß in der Tür: Der parlamentarische Arm der neuen Bürgerbewegung für mehr Mitwirkung und gegen Bevormundung.
+</p>
+<p>Neue Möglichkeiten der Überwachung greifen in die Privatsphäre der Bürger ein. Wir ste- hen für Freiheit und Selbstbestimmung statt Überwachung. Der Schutz der Privatsphäre ist unser aller Ansporn.</p></div>          
+<div class="stage_4_2_1_2 stage subp panel" id="chap_2_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_3 stage subp panel" id="chap_3_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_4 stage subp panel" id="chap_4_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_5 stage subp panel" id="chap_5_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_6 stage subp panel" id="chap_6_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_7 stage subp panel" id="chap_7_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_8 stage subp panel" id="chap_8_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_9 stage subp panel" id="chap_9_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_10 stage subp panel" id="chap_10_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_11 stage subp panel" id="chap_11_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_12 stage subp panel" id="chap_12_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_13 stage subp panel" id="chap_13_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_14 stage subp panel" id="chap_14_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_15 stage subp panel" id="chap_15_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_16 stage subp panel" id="chap_16_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_17 stage subp panel" id="chap_17_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_18 stage subp panel" id="chap_18_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+<div class="stage_4_2_1_19 stage subp panel" id="chap_19_ex"><div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div><p>Im Januar br<p>Im Januar bringen die Piraten frischen Wind in den Landtag. Seit 2010 sind wir auch in Räten und Parlamenten vertreten. Die bisherige Politik in Niedersachsen hat sich verloren in Stallordnungen von Parteien und dem Machterhalt von Personen. Ohne Sicht auf das große Ganze wird immer wieder reformiert und widerrufen. Die etablierten Parteien verfolgen in Niedersachsen bisher nur kurz- und mittelfristige Politikansätze. Wir Piraten denken langfristig.</div>
+
+
+<!-- stage 3/2/2 -->
+<div class="stage_3_2_2 stage subp" id="" style="display:none;margin-top:220px;">
+<div class="contentPreHead last" id="c5"><span>Unsere Inhalte</span></div>
+        <ul id="inhnav" class="nav panel">
+          <li  id="chap_1" class="first">
+            <a href="#">Celler Erkl&auml;rung</a>
+          </li>
+          <li  id="chap_2">
+            <a href="#">Pr&auml;ambel</a>
+          </li>
+          <li  id="chap_3">
+            <a href="#">Wirtschaft und Finanzen</a>
+          </li>
+          <li  id="chap_4">
+            <a href="#">Arbeit und Soziales</a>
+          </li>
+          <li  id="chap_5">
+            <a href="#">Bauen und Verkehr</a>
+          </li>
+          <li  id="chap_6">
+            <a href="#">Inneres und Recht</a>
+          </li>
+          <li  id="chap_7">
+            <a href="#">Geschlechter-, Familien- und Jugendpolitik</a>
+          </li>
+          <li  id="chap_8">
+            <a href="#">Drogen- und Suchtpolitik</a>
+          </li>
+          <li  id="chap_9">
+            <a href="#">Gesundheit</a>
+          </li>
+          <li  id="chap_10">
+            <a href="#">Umwelt</a>
+          </li>
+          <li  id="chap_11">
+            <a href="#">Energie</a>
+          </li>
+          <li  id="chap_12">
+            <a href="#">Verbraucherschutz</a>
+          </li>
+          <li  id="chap_13">
+            <a href="#">Staat und Religion</a>
+          </li>
+          
+          <li  id="chap_14">
+            <a href="#">Datenschutz</a>
+          </li>
+          
+          <li  id="chap_15">
+            <a href="#">Offene Standards und freie Software</a>
+          </li>
+          
+          <li  id="chap_16">
+            <a href="#">Transparenz in Politik und Verwaltung</a>
+          </li>
+          <li  id="chap_17">
+            <a href="#">Demokratiest&auml;rkung</a>
+          </li>
+          
+          <li  id="chap_18">
+            <a href="#">Kultur und Medien</a>
+          </li>
+          
+          <li  id="chap_19">
+            <a href="#">F&uuml;r eine humanistische Gesellschaft</a>
+          </li>  
+          
+  </ul>
+
+</div>
+<div id="player" class="stage_4_2_2_1 stage_4_2_2_2 stage_4_2_2_3 stage subp panel">
+<div class="contentPreHead last" id="c5"><span>Wahlprogramm</span></div>
+        <a href="#" id="playbtn" class="btn large" onclick=""><img id="pauseimg" src="images/media-playback-pause-5.ico"></a>
+        <a href="#" id="stopbtn" class="btn large" onclick=""><img src="images/media-playback-stop-5.ico"></a>
+        <p style="margin-top: -7px;" id="audio_position">0:00/0:00</p></div>          
+<div id="progress" style="opacity:.7;background-color:#000;position:absolute;top:0px;left:0px;right:0px;width:auto;bottom:0px;height:auto;z-index:999;font-family:Helvetica;color:#fff;"><p style="position:absolute;left:0px;right:0px;width:auto;top:50%;text-align:center;">Lade Wahlprogramm-H&ouml;rbuch...</p></div>
+<div id="ovel" style="vertical-align:middle;background-color:#000;position:absolute;top:0px;left:0px;right:0px;width:auto;height:100%;display:none;overflow:hidden;z-index:999;text-align:center;">
+<img style="padding-top:20px;" id="plakatimg"></div>
+    </body>
+    </html>
