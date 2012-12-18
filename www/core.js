@@ -1,5 +1,12 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
+    //disable logging
+    (function(){
+     console.log = function (message) {
+     };
+     })();
+    
+    
     window.loadedblog=0;
     window.currentID='stage_0';
     window.smsTo='81190';
