@@ -1,6 +1,10 @@
 document.addEventListener("deviceready", onDeviceReady, false);
+
 function onDeviceReady() {
-    //disable logging
+    
+	
+	initSystem();
+	
     (function(){
      console.log = function (message) {
      };
@@ -23,29 +27,35 @@ function onDeviceReady() {
      });
      }); */
     setTimeout(function() {
+               if(device.platform.toLowerCase()!="android") {
+               $("#bodycontainer").css("padding-left","0px");
+               }
                navigator.splashscreen.hide();
+               
                $("#progress").fadeOut();
                $("#progressrss").fadeOut();
                $("#progressnearby").fadeOut();
                }, 2000);
 }
+
 function padZero(s){
     c= '0';
     len=2;
     while(s.length < len) s= c + s;
     return s;
 }
+
 function ajaxErr(xhr, errortext) {
     $("#progressnearby").fadeOut();
     $("#progressrss").fadeOut();
     $("#progressrss").fadeOut();
     if(errortext=="timeout") {
-        navigator.notification.alert('Beim der Anfrage ist eine Zeitüberschreitung aufgetreten. Bitte Interverbindung überprüfen und erneut versuchen.', function(buttonIndex) {},
+        navigator.notification.confirm('Beim der Anfrage ist eine Zeitüberschreitung aufgetreten. Bitte Interverbindung überprüfen und erneut versuchen.', function(buttonIndex) {},
                                      'Laden...',
                                      'OK'
                                      );
     } else {
-        navigator.notification.alert('Ein unbekannter Fehler ist aufgetreten. Bitte Interverbindung überprüfen und erneut versuchen.', function(buttonIndex) {},
+        navigator.notification.confirm('Ein unbekannter Fehler ist aufgetreten. Bitte Interverbindung überprüfen und erneut versuchen.', function(buttonIndex) {},
                                      'Laden...',
                                      'OK'
                                      );
@@ -73,7 +83,7 @@ function share(text, url, media) {
     window.shareText=text;
     window.shareUrl=url;
     if(media!=1 && media!=2 ) {
-        navigator.notification.alert(
+        navigator.notification.confirm(
                                      "Wo teilen?",
                                      function(buttonIndex) {
                                      if (buttonIndex == 1) {
@@ -161,7 +171,7 @@ function onSuccess() {
 function onError(error) {
     console.log('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
     $("#progress").hide();
-    navigator.notification.alert(
+    navigator.notification.confirm(
                                  'Laden der Datei fehlgeschlagen! Bitte Internetverbindung überprüfen!',
                                  function(bi) {
                                  console.log(bi);
@@ -200,7 +210,7 @@ function showResponse(jsondata)  {
             var butT=99;
             var butNT=1;
         }
-        navigator.notification.alert(dialogText,
+        navigator.notification.confirm(dialogText,
                                      function(buttonIndex) {
                                      if (buttonIndex == butNT) {
                                      headclick.call($('.stage_0 span'));
@@ -208,7 +218,7 @@ function showResponse(jsondata)  {
                                      share("Ich hab grade "+jsondata.betrag+" € an die @PiratenNDS gespendet! #ltwnds13 #ideenkopierer","http://spenden.piraten-nds.de/spenden/");
                                      headclick.call($('.stage_0 span'));
                                      } else if (buttonIndex == 1) {
-                                     window.plugins.smsComposer.showSMSComposerWithCB(smsres,window.smsTo, window.smsBody);
+                                     sendeSMS(smsres,window.smsTo, window.smsBody);
                                      }
                                      },
                                      "Spende erfolgreich",
@@ -217,7 +227,7 @@ function showResponse(jsondata)  {
         
     } else {
         if(jsondata.error=="email") {
-            navigator.notification.alert("Leider kann deine Spende gerade nicht entgegengenommen werden. Bitte versuch es später noch einmal!",
+            navigator.notification.confirm("Leider kann deine Spende gerade nicht entgegengenommen werden. Bitte versuch es später noch einmal!",
                                          function(bi) {
                                          console.log(bi);
                                          },
@@ -226,7 +236,7 @@ function showResponse(jsondata)  {
                                          );
         } else if(jsondata.error=="entry") {
             var errors=jsondata.fields.join(",");
-            navigator.notification.alert("In den Feldern: "+errors+" hast du keinen oder einen nicht zulässigen Wert eingegeben. Überprüfe bitte deine Eingabe!",
+            navigator.notification.confirm("In den Feldern: "+errors+" hast du keinen oder einen nicht zulässigen Wert eingegeben. Überprüfe bitte deine Eingabe!",
                                          function(bi) {
                                          console.log(bi);
                                          },
@@ -242,7 +252,7 @@ function showRequest(formData, jqForm, options) {
 }
 
 function submiterr(e) {
-    navigator.notification.alert(
+    navigator.notification.confirm(
                                  "Das Absenden der Spende ist fehlgeschlagen. Bitte Internetverbindung prüfen!",
                                  function(bi) {console.log(bi);},
                                  "Fehler",
@@ -250,7 +260,8 @@ function submiterr(e) {
                                  );
 }
 function submiterrInfo(e) {
-    navigator.notification.alert(
+    console.log(e);
+    navigator.notification.confirm(
                                  "Das Absenden deiner Bestellung ist fehlgeschlagen. Bitte Internetverbindung prüfen!",
                                  function(bi) {console.log(bi);},
                                  "Fehler",
@@ -262,7 +273,7 @@ function showResponseInfo(jsondata)  {
     if(jsondata.success==1) {
         $('#infomat').resetForm();
         setTimeout(function() {
-                   navigator.notification.alert(
+                   navigator.notification.confirm(
                                                 "Das Infomaterial wird schnellstmöglich an dich gesendet! Die Versendung kostet uns ca."+jsondata.betrag+" €. Wir möchten dich daher bitten, mindestens diesen Betrag zu spenden.",
                                                 function(buttonIndex) {
                                                 if (buttonIndex == 1) {
@@ -280,7 +291,7 @@ function showResponseInfo(jsondata)  {
                    },100);
     } else {
         if(jsondata.error=="email") {
-            navigator.notification.alert(
+            navigator.notification.confirm(
                                          "Leider kann deine Spende gerade nicht entgegengenommen werden. Bitte versuch es später noch einmal!",
                                          function(bi) {console.log(bi);},
                                          "Spende fehlgeschlagen",
@@ -288,7 +299,7 @@ function showResponseInfo(jsondata)  {
                                          );
         } else if(jsondata.error=="entry") {
             var errors=jsondata.fields.join(",");
-            navigator.notification.alert(
+            navigator.notification.confirm(
                                          "In den Feldern: "+errors+" hast du keinen oder einen nicht zulässigen Wert eingegeben. Überprüfe bitte deine Eingabe!",
                                          function(bi) {console.log(bi);},
                                          "Spende fehlgeschlagen",
@@ -298,8 +309,16 @@ function showResponseInfo(jsondata)  {
     }
 }
 $(document).ready(function() {
+	
+	              h = (screen.availHeight-10);
+	              w = (screen.width);
+	              if(w<320){
+	            	 $('#bodycontainer').css("width",w+"px"); 
+	              }
+	              $('#bodycontainer').css("height",h+"px");
+	
                   $('#lastschrift').submit(function() {
-                                           navigator.notification.alert(
+                                           navigator.notification.confirm(
                                                                         "Mit dem Klick auf die OK-Schalftlfäche erteilen Sie der Piratenpartei Niedersachsen die Erlaubnis, von dem angegebenen Konto den angegebenen Betrag als Spende abzubuchen. Diese Erklärung gilt bis auf Weiteres. Ein jederzeit möglicher Widerruf erfolgt in Textform.",
                                                                         function(buttonIndex) {
                                                                         if (buttonIndex == 1) {
@@ -311,7 +330,7 @@ $(document).ready(function() {
                                                                         );
                                            return false;
                                            });
-                  $('#infomat').ajaxForm({dataType:  'json',success: showResponseInfo,error:submiterrInfo});
+                  $('#infomat').ajaxForm({dataType:'json',success: showResponseInfo,error:submiterrInfo});
                   $('.panel').height(window.innerHeight-270);
                   window.headclick = function() {
                   stopAudio();
@@ -348,7 +367,7 @@ $(document).ready(function() {
                   console.log(oldstageclass[0]);
                   console.log(newstage);
                   if(newstage=='stage_3_1_3') {
-                  CDVVideo.play('http://pp90.de/idkpmedia/wahlwerbespot_mittel1.mp4', 'YES');
+                	 spieleVideo("http://pp90.de/idkpmedia/wahlwerbespot_mittel1.mp4");
                   } else {
                   $('.stage').not('.'+newstage).fadeOut(function() {
                                                         $('.'+newstage).fadeIn();
@@ -404,6 +423,14 @@ $(document).ready(function() {
                                                             $('#plakatimg').attr('src',src);
                                                             });
                   
+                  $("#saveplakat").click(function() {
+                             	    parts = $('#plakatimg').attr('src');
+                             	    parts = parts.split("/");
+                             	    parts = parts[parts.length-1];
+                             	    parts = parts.split(".");
+                             	  	saveImage(parts[1]+parts[0]);
+                               		});
+                  
                   $("#ovel").click(function() {
                                    $('#ovel').fadeOut();
                                    var src=$(this).attr('src');
@@ -439,12 +466,16 @@ $(document).ready(function() {
                                   window.location.href='http://www.facebook.com/ideenkopierer';
                                   });
                   $("#c41").click(function() {
-                                  window.plugins.smsComposer.showSMSComposerWithCB(smsres,window.smsTo, window.smsBody);
+                                  sendeSMS(smsres, window.smsTo, window.smsBody);
                                   });
+                  $("#c992").click(function() {
+                                   sendeEmail(function() { headclick.call($('.stage_0 span')); },"App-Feedback","Hallo,\nzur App möchte ich euch folgendes Sagen:","anfrage@piraten-nds.de");
+                                   });
+                  
                   function smsres(result){
                   setTimeout(function(){
                              if(result == 0){
-                             navigator.notification.alert(
+                             navigator.notification.confirm(
                                                           "Schade, dass du nicht gespendet hast. Möchtest du vielleicht lieber per Lastschrift spenden?",
                                                           function(buttonIndex) {
                                                           if (buttonIndex == 1) {
@@ -470,7 +501,7 @@ $(document).ready(function() {
                              var butT=99;
                              var butNT=2;
                              }
-                             navigator.notification.alert(
+                             navigator.notification.confirm(
                                                           dialogText,
                                                           function(buttonIndex) {
                                                           if (buttonIndex == butNT) {
@@ -479,7 +510,7 @@ $(document).ready(function() {
                                                           share("Ich hab grade 5 € an die @PiratenNDS gespendet! #ltwnds13 #ideenkopierer","http://spenden.piraten-nds.de/spenden/");
                                                           headclick.call($('.stage_0 span'));
                                                           } else if (buttonIndex == 1) {
-                                                          window.plugins.smsComposer.showSMSComposerWithCB(smsres,window.smsTo, window.smsBody);
+                                                          sendeSMS(smsres, window.smsTo, window.smsBody);
                                                           }
                                                           },
                                                           "Spende erfolgreich",
@@ -549,6 +580,11 @@ $(document).ready(function() {
                   linkdesc['stage_3_3_4']='piraten-nds.de';
                   linkdesc['stage_4_4_3_3']='Spendenportal > SMS-Spende';
                   linkdesc['stage_4_4_3_4']='Spendenportal > Lastschrift';
+                  
+                  $("#exit").click(function() {
+                                      navigator.app.exitApp();
+                                      });
+                  
                   $("#twitter").click(function() {
                                       
                                       if(linkrel[window.currentID]==undefined) {
@@ -558,7 +594,7 @@ $(document).ready(function() {
                                       var addurl=linkrel[window.currentID];
                                       var addesc=linkdesc[window.currentID];
                                       }
-                                      navigator.notification.alert(
+                                      navigator.notification.confirm(
                                                                    "Möchtest du in deinem Tweet auf die Seite "+addesc+" verweisen?",
                                                                    function(buttonIndex) {
                                                                    if (buttonIndex == 2) {
@@ -582,55 +618,83 @@ $(document).ready(function() {
                                        share("#ltwnds13 #ideenkopierer",addurl, 2);
                                        });
                   var loadNearby = function(lat, lng, distance) {
-                  $("#progressnearby").fadeIn(function() {
-                                              $.ajax({
-                                                     url: 'http://pp90.de/umkreis.php?lat='+lat+'&long='+lng+'&distance='+distance,
-                                                     dataType: 'json',
-                                                     timeout: '5000',
-                                                     success: function(e) {
-                                                     if(e.success==1) {
-                                                     $("#progressnearby").fadeOut();
-                                                     
-                                                     console.log(e);
-                                                     var html = '';
-                                                     var html2=''
-                                                     for (var i = 0; i < e.entries.length; i++) {
-                                                     console.log(e.entries[i]);
-                                                     var start_date=new Date(e.entries[i].start_at);
-                                                     var start_date_d = start_date.getDate();
-                                                     var start_date_m = start_date.getMonth() + 1;
-                                                     var start_date_y = start_date.getFullYear();
-                                                     var start_date_hh = padZero(start_date.getHours().toString());
-                                                     var start_date_mm = padZero(start_date.getMinutes().toString());
-                                                     var end_date=new Date(e.entries[i].end_at);
-                                                     var end_date_d = end_date.getDate();
-                                                     var end_date_m = end_date.getMonth() + 1;
-                                                     var end_date_y = end_date.getFullYear();
-                                                     var end_date_hh = padZero(end_date.getHours().toString());
-                                                     var end_date_mm = padZero(end_date.getMinutes().toString());
-                                                     html += '<li>    <a href="#">' + e.entries[i].name + '</a><br /><p style="text-align:right;margin-top: -20px;margin-bottom:0px;"><i>'+e.entries[i].distance+' km - '+start_date_d+'.'+start_date_m+'.'+start_date_y+', '+start_date_hh+':'+start_date_mm+'</i></p></li>';
-                                                     html2 +='<div class="stage_3_3_'+(i+1)+' stage subp panel blogtext" id=""><div class="contentPreHead last" id="c5"><span>Veranstaltungen</span></div><p class="event_title"><b>'+e.entries[i].name+'</b></p><p class="event_distance">Entfernung: '+e.entries[i].distance+'km</p><p>Ort: <a href="http://maps.apple.com/maps?daddr='+e.entries[i].address+'">'+e.entries[i].address+'</a></p><p class="event_start">Beginn: '+start_date_d+'.'+start_date_m+'.'+start_date_y+', '+start_date_hh+':'+start_date_mm+'</p><p class="event_end">Ende: '+end_date_d+'.'+end_date_m+'.'+end_date_y+', '+end_date_hh+':'+end_date_mm+'</p>'+e.entries[i].description+'</div>';
-                                                     }
-                                                     $('#nearby').html(html);
-                                                     $('#nearbycontainer').html(html2);
-                                                     $(".stage li").click(liclick);
-                                                     $('.contentPreHead span').click(headclick);
-                                                     $('.panel').height(window.innerHeight-270);
-                                                     } else {
-                                                     $("#progressnearby").fadeOut();
-                                                     navigator.notification.alert('Ein Serverfehler ist aufgetreten. Der Webmaster wurde informiert. Bitte versuch es später noch einmal.', function(buttonIndex) {
-                                                                                  },
-                                                                                  'Veranstaltungssuche',
-                                                                                  'OK'
-                                                                                  );
-                                                     }
-                                                     },
-                                                     error: ajaxErr
-                                                     });
-                                              });
+                  navigator.notification.confirm(
+                                                 "Möchtest du die Veranstaltungen nach Entfernung oder nach Datum sortieren?",
+                                                 function(buttonIndex) {
+                                                 if (buttonIndex == 1) {
+                                                 sorting='distance';
+                                                 }
+                                                 if (buttonIndex == 2) {
+                                                 sorting='date';
+                                                 }
+                                                 $("#progressnearby").fadeIn(function() {
+                                                                             $.ajax({
+                                                                                    url: 'http://pp90.de/umkreis.php?lat='+lat+'&long='+lng+'&distance='+distance+'&sorting='+sorting,
+                                                                                    dataType: 'json',
+                                                                                    timeout: '5000',
+                                                                                    success: function(e) {
+                                                                                    if(e.success==1) {
+                                                                                    $("#progressnearby").fadeOut();
+                                                                                    
+                                                                                    console.log(e);
+                                                                                    var html = '';
+                                                                                    var html2=''
+                                                                                    for (var i = 0; i < e.entries.length; i++) {
+                                                                                    console.log(e.entries[i]);
+                                                                                    var start_date=new Date(e.entries[i].start_at);
+                                                                                    var start_date_d = start_date.getDate();
+                                                                                    var start_date_m = start_date.getMonth() + 1;
+                                                                                    var start_date_y = start_date.getFullYear();
+                                                                                    var start_date_hh = padZero(start_date.getHours().toString());
+                                                                                    var start_date_mm = padZero(start_date.getMinutes().toString());
+                                                                                    var end_date=new Date(e.entries[i].end_at);
+                                                                                    var end_date_d = end_date.getDate();
+                                                                                    var end_date_m = end_date.getMonth() + 1;
+                                                                                    var end_date_y = end_date.getFullYear();
+                                                                                    var end_date_hh = padZero(end_date.getHours().toString());
+                                                                                    var end_date_mm = padZero(end_date.getMinutes().toString());
+                                                                                    html += '<li>    <a href="#">' + e.entries[i].name + '</a><br /><p style="text-align:right;margin-top: -20px;margin-bottom:0px;"><i>'+e.entries[i].distance+' km - '+start_date_d+'.'+start_date_m+'.'+start_date_y+', '+start_date_hh+':'+start_date_mm+'</i></p></li>';
+                                                                                    html2 +='<div class="stage_3_3_'+(i+1)+' stage subp panel blogtext" id=""><div class="contentPreHead last" id="c5"><span>Veranstaltungen</span></div><p class="event_title"><b>'+e.entries[i].name+'</b></p><p class="event_distance">Entfernung: '+e.entries[i].distance+'km</p><p>Ort: <a href="http://maps.apple.com/maps?daddr='+e.entries[i].address+'">'+e.entries[i].address+'</a></p><p class="event_start">Beginn: '+start_date_d+'.'+start_date_m+'.'+start_date_y+', '+start_date_hh+':'+start_date_mm+'</p><p class="event_end">Ende: '+end_date_d+'.'+end_date_m+'.'+end_date_y+', '+end_date_hh+':'+end_date_mm+'</p>'+e.entries[i].description+'</div>';
+                                                                                    }
+                                                                                    
+                                                                                    if(html.length==0){
+                                                                                    navigator.notification.confirm('Keine Veranstaltungen gefunden, bitte Umkreissuche erweitern!',function(buttonIndex) {
+                                                                                                                   if (buttonIndex == 1) {
+                                                                                                                   navigator.geolocation.getCurrentPosition(GeoOnSuccess,GeoOnError);
+                                                                                                                   }
+                                                                                                                   if (buttonIndex == 2) {
+                                                                                                                   return;
+                                                                                                                   }
+                                                                                                                   },
+                                                                                                                   'Keine Veranstaltungen gefunden',
+                                                                                                                   'Noch mal versuchen, OK'
+                                                                                                                   );
+                                                                                    }
+                                                                                    
+                                                                                    $('#nearby').html(html);
+                                                                                    $('#nearbycontainer').html(html2);
+                                                                                    $(".stage li").click(liclick);
+                                                                                    $('.contentPreHead span').click(headclick);
+                                                                                    $('.panel').height(window.innerHeight-270);
+                                                                                    } else {
+                                                                                    $("#progressnearby").fadeOut();
+                                                                                    navigator.notification.confirm('Ein Serverfehler ist aufgetreten. Der Webmaster wurde informiert. Bitte versuch es später noch einmal.', function(buttonIndex) {
+                                                                                                                   },
+                                                                                                                   'Veranstaltungssuche',
+                                                                                                                   'OK'
+                                                                                                                   );
+                                                                                    }
+                                                                                    },
+                                                                                    error: ajaxErr
+                                                                                    });
+                                                                             });
+                                                 },
+                                                 "Sortierung",
+                                                 "Entfernung,Datum"
+                                                 );
                   }
                   var GeoOnSuccess = function(position) {
-                  navigator.notification.alert('Bitte Suchumkreis wählen', function(buttonIndex) {
+                  navigator.notification.confirm('Bitte Suchumkreis wählen', function(buttonIndex) {
                                                if(buttonIndex==1) {var distance=10;}
                                                if(buttonIndex==2) {var distance=25;}
                                                if(buttonIndex==3) {var distance=50;}
@@ -644,13 +708,13 @@ $(document).ready(function() {
                   };
                   function GeoOnError(error) {
                   if(error.code==1) {
-                  navigator.notification.alert('Sie haben die Positionsbestimmung nicht erlaubt. Es werden alle Veranstaltungen angezeigt. Sie können diese Einstellung ändern unter "Einstellungen>Datenschutz>Ortungsdienste', function(buttonIndex) {
+                  navigator.notification.confirm('Sie haben die Positionsbestimmung nicht erlaubt. Es werden alle Veranstaltungen angezeigt. Sie können diese Einstellung ändern unter "Einstellungen>Datenschutz>Ortungsdienste', function(buttonIndex) {
                                                },
                                                'Positionsbestimmung fehlgeschlagen',
                                                'OK'
                                                );
                   }
-                  navigator.notification.alert('Die Positionsbestimmung ist fehlgeschlagen. Versuch es bitte noch mal oder klick "OK", um alle Veranstaltungen anzuzeigen.', function(buttonIndex) {
+                  navigator.notification.confirm('Die Positionsbestimmung ist fehlgeschlagen. Versuch es bitte noch mal oder klick "OK", um alle Veranstaltungen anzuzeigen.', function(buttonIndex) {
                                                if(buttonIndex==1) {
                                                navigator.geolocation.getCurrentPosition(GeoOnSuccess,
                                                                                         GeoOnError);
@@ -667,4 +731,7 @@ $(document).ready(function() {
                                                                           GeoOnError);
                                  
                                  });
-                  });
+                  
+
+
+				  });

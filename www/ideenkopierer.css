@@ -3,7 +3,24 @@ body {
     background-size: 100% 1000px;
 overflow:hidden;
     font-family: sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 }
+
+#bodycontainer{
+position:absolute;
+width: 320px;
+left:50%;
+margin-left:-160px;
+padding-left:5px;
+}
+
+#bodycontainer div{
+float:center;
+}
+
 .contentPreHead a{
 color:#fff;
     text-decoration:none;
@@ -227,6 +244,15 @@ left: 15px;
     font-size: 19px;
     padding-top:5px;
 }
+#c992 {
+    width: 140px;
+    height: 30px;
+    background-size: 140px 30px;
+    top: 330px;
+    left: 15px;
+    font-size: 19px;
+    padding-top:5px;
+}
 #c40 {
 width: 160px;
 height: 30px;
@@ -400,4 +426,16 @@ display:none;
 overflow:hidden;
     z-index:999;
     text-align:center;
+}
+
+#saveplakat{
+top:30px;
+left:80%;
+width:24px;
+height: 24px;
+background:#FFFFFF url(images/download-24x24.png) no-repeat;
+background-position:4px 4px;
+padding:4px;
+border:1px solid #000000;
+position:absolute;	
 }

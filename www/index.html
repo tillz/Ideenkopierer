@@ -8,14 +8,13 @@
         <meta charset="utf-8">
             <link rel="stylesheet" href="ideenkopierer.css">
             <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
-            <script type="text/javascript" charset="utf-8" src="jquery-1.8.3.min.js"></script>
+            <script type="text/javascript" charset="utf-8" src="jquery-1.8.3.js"></script>
             <script type="text/javascript" charset="utf-8" src="jquery.form.js"></script>
-            <script type="text/javascript" charset="utf-8" src="CDVVideo.js"></script>
-            <script type="text/javascript" charset="utf-8" src="SMSComposer.js"></script>
-            <script type="text/javascript" charset="utf-8" src="TwitterPlugin.js"></script>
+            <script type="text/javascript" charset="utf-8" src="plugins/load.js"></script>
             <script type="text/javascript" charset="utf-8" src="core.js"></script>
             </head>
     <body>
+      <div id="bodycontainer">
         <!-- header -->
         <div class="stage_0" style="height: 130px;
             width: auto;
@@ -69,6 +68,7 @@
             <div class="contentPreHead" id="c31"><span>Social Media</span></div>
             <div class="contentPreHead" id="c32"><span>Spenden</span></div>
             <div class="contentPreHead" id="c33"><span>Wahl-Blog</span></div>
+            <div class="contentPreHead" id="c34"><span>Über die App</span></div>
             <!--     <div class="contentPreHead" id="c34"><span>Veranstaltungen vor Ort</span></div> -->
         </div>
         
@@ -183,7 +183,7 @@
             </ul>
         </div>
         
-        <!-- stage 3/3/2 - Mehr - Social Media -->
+        <!-- stage 3/4/2 - Mehr - Social Media -->
         <div class="stage_3_4_2 stage subp" id="">
             <div class="contentPreHead last" id="c9"><span>Mehr...</span></div><p style="display:inline;font-size:12px;">
             <div class="contentPreHead" id="c71"><span>@ideenkopierer</span></div>
@@ -193,7 +193,7 @@
             </p>
         </div>
         
-        <!-- stage 3/3/3 - Mehr - Spenden -->
+        <!-- stage 3/4/3 - Mehr - Spenden -->
         <div class="stage_3_4_3 stage subp panel" id="">
             <div class="contentPreHead last" id="c9"><span>Mehr...</span></div><p style="display:inline;font-size:12px;">
             Für unsere politische Aktivität benötigen wir neben sehr viel Überzeugung und Engagement leider auch Geld.<br />
@@ -203,11 +203,48 @@
             <div class="contentPreHead" id="c39"><span>SMS-Spende</span></div>
             <div class="contentPreHead" id="c40"><span>Lastschrift</span></div>
         </div>
-        
-        <!-- stage 4/3/3/3 - Mehr - Spenden - SMS -->
+          
+          <!-- stage 3/4/4 - Mehr - Über -->
+          <div class="stage_3_4_5 stage subp" id="">
+              <div class="contentPreHead last" id="c9"><span>Mehr...</span></div><p style="display:inline;font-size:12px;">
+              <div class="contentPreHead" id="c72"><span>Datenschutz</span></div>
+              <div class="contentPreHeadNL" id="c992"><span>Feedback</span></div>
+              <div class="contentPreHead" id="c40"><span>Credits</span></div>
+              </p>
+          </div>
+          
+          <!-- stage 4/4/5/1 - Mehr - Über - Datenschutz-->
+          <div class="stage_4_4_5_3 stage subp panel" id="">
+              <div class="contentPreHead last" id="c9"><span>Über die App</span></div><p style="display:inline;font-size:12px;">
+              Getreu unserem Programm nehmen wir den Schutz eurer Daten sehr ernst. Grundsätzlich läuft dieses Programm komplett offline,
+              und benötigt keinerlei Daten von euch. Allerdings sind folgende Punkte zu beachten:
+              -Für die SMS-Spenden wird Zugriff auf eure SMS benötigt. Die App kann jedoch nur SMS Schreiben, und das auch nur auf ausdrücklichen Wunsch.<br>
+              -Für die Veranstaltungssuche benötigt die App natürlich euren Standort. Dieser wird nur an die Server der Piratenpartei Niedersachsen gesendet, und dort weder dauerhaft gespeichert noch weitergebeben oder - außer um euch nahgelegene Veranstaltung zu ermitteln - weiterverarbeitet.<br>
+              -Das Wahlprogramm-Hörbuch, der Wahl-Blog, die Plakate sowie der Werbespot werden aus dem Internet geladen. Dabei wird eure IP-Adresse und der Zugriffszeitpunkt aus statistischen Gründen gespeichert. Eine Weitergabe (Google Analytics o.Ä.) erfolgt nicht.<br>
+              -Für die Lastschriftspende eingegebene Daten werden durchgängig verschlüsselt an unsereren Schatzmeister verschickt. Dieser Zieht die Spenden von deinem Konto ein. Deine persönlichen Daten werden dabei zur Abrechnung der Spenden erfasst und weiterverarbeitet. Eure Daten werden nicht zweckfremd (Werbung, Newsletter o.Ä.) verwendet oder weitergegeben, soweit dies für die Abwicklung der Spende nicht zwingend notwendig ist.<br>
+              -Eure Daten aus der Infomaterialbestellung werden ausschließlich zum Zweck der Materialversendung an euch innerparteilich weitergegeben.<br>
+              -Die eingegebenen Daten wie E-Mail oder Telefonnummer werden nur genutzt, um mit euch im ursprünglichen Zusammenhang (Infomaterial oder Spende) in Verbindung zu treten.<br>
+              -Die erfassten Daten aus den o.G. genannten Punkten werden in keiner Weise miteinander verknüpft.<br>
+              </p>
+          </div>
+          
+          
+          <!-- stage 4/4/5/1 - Mehr - Über - Credits -->
+          <div class="stage_4_4_5_5 stage subp panel" id="">
+              <div class="contentPreHead last" id="c9"><span>Über die App</span></div><p style="display:inline;font-size:12px;text-align:center;">
+            Design angelehnt an ideenkopierer.de,<br> CC-BY-SA Piratenpartei Niedersachsen<br>
+            Wahlprogramm von unzähligen Mitgliedern der Piratenpartei Deutschland<br><br><br>
+              Ideenkopierer-App:<br>
+              Android-Einbindung - Matthias Hackbarth @haggybear<br>
+              iOS-Einbindung - Till Zimmermann @tillzz<br>
+              Konzept & Design - Till Zimmermann @tillzz<br>
+              </p>
+          </div>
+          
+        <!-- stage 4/4/3/3 - Mehr - Spenden - SMS -->
         <div class="stage_4_4_3_3 stage subp panel" id="">
             <div class="contentPreHead last" id="c9"><span>Spenden</span></div><p style="display:inline;font-size:12px;">
-            Die Spende per SMS ist am einfachsten. Sende einfach eine SMS mit dem Wort "PIRATEN" an die 81190, oder Klick auf "Jetzt Spenden" und dann auf "Senden" <br />
+            Die Spende per SMS ist am einfachsten. Sende einfach eine SMS mit dem Wort "PIRATEN" an die 81190, oder Klick auf "Jetzt Spenden" und dann auf "Senden" !<br />
             Diese SMS kostet dich 5 € zuzüglich der normalen SMS-Versandkosten deines Mobilfunkanbieters,<br />
             die Abrechnung erfolgt Über deine Mobilfunkrechnung.<br />
             Pro SMS-Spende gehen 4,83 € direkt an die Piratenpartei Niedersachsen
@@ -218,8 +255,7 @@
         <!-- stage 4/3/3/4 - Mehr - Spenden - Lastschrift -->
         <div class="stage_4_4_3_4 stage subp panel" id="">
             <div class="contentPreHead last" id="c9"><span>Spenden</span></div>
-            <!-- <form id="lastschrift" action="https://spenden.piraten-nds.de/spenden/lastschrift/#formBuilderCSSIDLastschriftspende" method="POST"> -->
-            <form id="lastschrift" action="http://pp90.de/formacceptor.php" method="POST">
+            <form id="lastschrift" action="https://elws.piraten-nds.de/bestellung.php" method="POST">
                 <p>Ich möchte
                 <input type="hidden" name="formBuilderForm[FormBuilderID]" value="1">
                     <select name="formBuilderForm[Wiederholung]">
@@ -453,8 +489,7 @@
         <!-- stage 3/2/3 - Mehr - Spenden - Lastschrift -->
         <div class="stage_3_2_3 stage subp panel" id="">
             <div class="contentPreHead last" id="c9"><span>Unsere Inhalte</span></div>
-            <!-- <form id="lastschrift" action="https://spenden.piraten-nds.de/spenden/lastschrift/#formBuilderCSSIDLastschriftspende" method="POST"> -->
-            <form id="infomat" action="http://pp90.de/formacceptor.php" method="POST">
+            <form id="infomat" action="https://elws.piraten-nds.de/bestellung.php" method="POST">
                 Du kannst hier einfach Infomaterial der Piratenpartei Niedersachsen bestellen. Dieses wird dir per Post zugeschickt.<br />
                 Bitte beachte, dass unsere finanzielle Situation sehr angespannt ist. Wir möchte dich daher bitten, die Portokosten
                 die die Zusendung von Infomaterial verursacht zu spenden (oder mehr).
@@ -480,11 +515,11 @@
                                 </p>
                                 Postleitzahl:
                                 <p>
-                                <input type="text" name="formBuilderForm[plz]:">
+                                <input type="text" name="formBuilderForm[plz]">
                                     </p>
                                     Ort:
                                     <p>
-                                    <input type="text" name="formBuilderForm[ort]:">
+                                    <input type="text" name="formBuilderForm[ort]">
                                         </p>
                                         Wahlprogramm:
                                         <p>
@@ -2617,10 +2652,13 @@
                 <a href="#" id="playbtn" class="btn large" onclick=""><img id="pauseimg" src="images/media-playback-pause-5.ico"></a>
                 <a href="#" id="stopbtn" class="btn large" onclick=""><img src="images/media-playback-stop-5.ico"></a>
                 <p style="margin-top: -7px;" id="audio_position">0:00/0:00</p></div>
+        </div>
         <div id="progress" class="progressb"><p>Lade Wahlprogramm-Hörbuch...</p></div>
         <div id="progressrss" class="progressb"><p>Lade Wahl-Blog</p></div>
         <div id="progressnearby" class="progressb"><p>Lade Veranstaltungen in der Nähe</p></div>
         <div id="ovel">
+            <div id="saveplakat"></div>
             <img style="padding-top:20px;" id="plakatimg"></div>
+      
     </body>
 </html>

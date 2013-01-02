@@ -28,21 +28,28 @@
 	<string>cloud</string>
 	<key>ExternalHosts</key>
 	<array>
+		<string>https://elws.piraten-nds.de/</string>
 		<string>*.*</string>
 		<string>*</string>
 		<string>http://wahl.piraten-nds.de/</string>
 		<string>http://ajax.googleapis.com/</string>
 		<string>http://ideenkopierer.de/</string>
 		<string>http://pp90.de/</string>
+		<string>http://*.piraten-nds.de</string>
+		<string>https://*.piraten-nds.de</string>
 	</array>
 	<key>Plugins</key>
 	<dict>
+		<key>SaveImage</key>
+		<string>SaveImage</string>
 		<key>TwitterPlugin</key>
 		<string>TwitterPlugin</string>
 		<key>CDVVideo</key>
 		<string>CDVVideo</string>
 		<key>SMSComposer</key>
 		<string>SMSComposer</string>
+		<key>EmailComposer</key>
+		<string>EmailComposer</string>
 		<key>Device</key>
 		<string>CDVDevice</string>
 		<key>Logger</key>
